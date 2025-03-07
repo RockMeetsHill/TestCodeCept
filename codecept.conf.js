@@ -12,7 +12,7 @@ exports.config = {
   output: './output',
   helpers: {
     REST: {
-      endpoint: 'http://localhost:5121/api'
+      endpoint: 'https://671792d4b910c6a6e028f033.mockapi.io//mockAPIforSWT'
     },
     JSONResponse: {}
   },

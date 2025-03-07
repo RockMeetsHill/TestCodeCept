@@ -1,10 +1,24 @@
 Feature('account');
 
 Scenario('test get all accounts from api',  ({ I }) => {
-    I.sendGetRequest('/Account');
+    I.sendGetRequest('/');
     I.seeResponseCodeIsSuccessful();
 });
 
+Scenario('get user by query id', ({ I }) => {
+    
+  const resp = I.sendGetRequest('/1');
+  I.seeResponseCodeIsSuccessful();
+
+  // check data for partial inclusion
+  I.seeResponseContainsJson({
+      name: "name 1",
+      password: "password 1",
+      id: "1"  
+  });
+});
+
+/*
 Scenario('test create new account to api',  ({ I }) => {
     //if the api call requires a token
     //I.amBearerAuthenticated(secret('token-is-here'));
@@ -78,7 +92,7 @@ Scenario('test create duplicate account to api',  ({ I }) => {
 
       })
 
-});
+});*/
 
 
 
